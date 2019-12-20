@@ -12,5 +12,3 @@ awk -F '|' '{ print $2 }' delegated-*-latest-$country.txt | sort | uniq | grep -
 
 # Generate country ip blocks
  grep "|ipv4|" delegated-*-latest-$country.txt | awk -F '|' '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > ${country}_IPv4.txt
-
-#DONE#
